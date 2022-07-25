@@ -1,0 +1,4 @@
+url=jdbc:mysql://localhost:3306/databaseName
+dbUser=
+dbUserPassword=
+driver=com.mysql.cj.jdbc.Driver
