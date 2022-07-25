@@ -1,6 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/eclipse,java,maven,visualstudiocode,intellij,intellij+all,vim,linux,windows,macos,git
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,java,maven,visualstudiocode,intellij,intellij+all,vim,linux,windows,macos,git
 
+
+### CUSTOM IGNORE ###
+src/main/resources/database.properties
+
 ### Eclipse ###
 .metadata
 bin/
