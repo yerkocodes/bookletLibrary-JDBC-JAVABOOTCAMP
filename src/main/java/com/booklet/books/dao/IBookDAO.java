@@ -17,7 +17,7 @@ public interface IBookDAO {
 	
 	//UPDATE
 	public int updateBook(Book book);
-	public int changeSelleable(int book_id, boolean selleable);
+	public int changeSellable(int book_id, boolean sellable);
 	
 	//DELETE
 	public int deleteBook(int book_id);

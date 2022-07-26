@@ -24,7 +24,7 @@ public class BookDAOImpl implements IBookDAO {
 
 	@Override
 	public int addBook(Book book) {
-		return jdbcTemplate.update("INSERT INTO books (author, title, year, sellable, printing) VALUES ?, ?, ?, ?, ?", book.getAuthor(), book.getTitle(), book.getYear(), book.isSellable(), book.getPrinting());
+		return jdbcTemplate.update("INSERT INTO books (author, title, year, sellable, printing) VALUES (?, ?, ?, ?, ?)", book.getAuthor(), book.getTitle(), book.getYear(), book.isSellable(), book.getPrinting());
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class BookDAOImpl implements IBookDAO {
 	@SuppressWarnings("deprecation")
 	@Override
 	public Book findByAuthorNameAndTitle(String authorName, String title) {
-		return jdbcTemplate.queryForObject("SELECT * FROM books WHERE author = ? AND title = ?", new Object[] { authorName, title }, new BookMapper());
+		return jdbcTemplate.queryForObject("SELECT * FROM books WHERE author = ? AND title = ?", new Object[] {authorName, title}, new BookMapper());
 	}
 
 	@Override
@@ -56,8 +56,8 @@ public class BookDAOImpl implements IBookDAO {
 	}
 
 	@Override
-	public int changeSelleable(int book_id, boolean selleable) {
-		return jdbcTemplate.update("UPDATE books SET selleable = ? WHERE book_id = ?", book_id, selleable);
+	public int changeSellable(int book_id, boolean sellable) {
+		return jdbcTemplate.update("UPDATE books SET sellable = ? WHERE book_id = ?", sellable, book_id);
 	}
 
 	@Override
