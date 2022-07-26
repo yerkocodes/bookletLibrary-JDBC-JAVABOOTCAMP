@@ -9,3 +9,17 @@ CREATE TABLE IF NOT EXISTS books (
   sellable BOOLEAN DEFAULT TRUE, -- Example: 0 or 1 - TRUE or FALSE
   printing VARCHAR(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO books (
+  author, 
+  title,
+  year,
+  sellable,
+  printing
+) VALUES (
+  "Yerko Cortes",
+  "Game of thrones",
+  2021,
+  true,
+  "Fletcher"
+);
