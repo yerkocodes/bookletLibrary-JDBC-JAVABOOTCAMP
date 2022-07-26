@@ -48,7 +48,25 @@
 		<artifactId>spring-jdbc</artifactId>
 		<version>5.3.22</version>
 	</dependency>
-	
+
+	<!-- JSTL -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+	</dependency>
+
+	<!-- SERVLET -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+	</dependency>
+
+	<!-- APACHE TOMCAT -->
+	<dependency>
+		<groupId>org.apache.tomcat.embed</groupId>
+		<artifactId>tomcat-embed-jasper</artifactId>
+		<scope>provided</scope>
+	</dependency>
 	
 	<!-- # ###################### # -->
 	</dependencies>
