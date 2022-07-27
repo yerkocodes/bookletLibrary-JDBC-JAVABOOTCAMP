@@ -11,7 +11,7 @@ import com.booklet.books.dao.IBookDAO;
 import com.booklet.books.model.Book;
 import com.booklet.books.vo.BookVO;
 
-@Service
+@Service("bookService")
 public class BookServiceImpl implements IBookService {
 	
 	@Autowired
@@ -37,7 +37,6 @@ public class BookServiceImpl implements IBookService {
 	public BookVO findAllBooks() {
 		response = new BookVO(new ArrayList<Book>(), "Ocurred an error", "104");
 		try {
-			System.out.println("desde ServiceImpl; " + dao.findAllBooks());
 			response.setBooks(new ArrayList<>(dao.findAllBooks()));
 			response.setMessage(String.format("%d book registers found", response.getBooks().size()));
 			response.setCode("200");
