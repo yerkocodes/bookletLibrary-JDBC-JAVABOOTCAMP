@@ -1,5 +1,8 @@
 package com.booklet.books.model;
 
+import org.springframework.stereotype.Component;
+
+@Component("book")
 public class Book {
 
 	private int book_id; 
