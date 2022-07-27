@@ -1,5 +1,6 @@
 package com.booklet.books;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -10,11 +11,11 @@ import com.booklet.books.service.IBookService;
 public class BookletLibraryJdbcJavabootcampApplication {
 
 	public static void main(String[] args) {
-//		SpringApplication.run(BookletLibraryJdbcJavabootcampApplication.class, args);
+		SpringApplication.run(BookletLibraryJdbcJavabootcampApplication.class, args);
 
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-
-		IBookService bookService = context.getBean(IBookService.class);
+//		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+//
+//		IBookService bookService = context.getBean(IBookService.class);
 		
 		
 		// ----------------- CREATE -----------------------
@@ -33,7 +34,7 @@ public class BookletLibraryJdbcJavabootcampApplication {
 //		System.out.println(bookService.findByTitle("Game of thrones").getBooks());
 		
 		//FindByAuthorNameAndTitle
-		System.out.println(bookService.findByAuthorNameAndTitle("Autor libro", "El pais de las maravillas").getBooks());
+//		System.out.println(bookService.findByAuthorNameAndTitle("Autor libro", "El pais de las maravillas").getBooks());
 		
 		// ----------------- UPDATE -----------------------
 		
@@ -47,17 +48,17 @@ public class BookletLibraryJdbcJavabootcampApplication {
 		// ----------------- DELETE -----------------------
 		
 		//deleteBook
-		System.out.println(bookService.deleteBook(1));
-		
-		context.close();
+//		System.out.println(bookService.deleteBook(1));
+//		
+//		context.close();
 
 	}
 
-	private static void printBooks(IBookService bookServ) {
-		System.out.println("Lista de libros: ");
-		for (Book book : bookServ.findAllBooks().getBooks()) {
-			System.out.println(book + "\n");
-		}
-	}
+//	private static void printBooks(IBookService bookServ) {
+//		System.out.println("Lista de libros: ");
+//		for (Book book : bookServ.findAllBooks().getBooks()) {
+//			System.out.println(book + "\n");
+//		}
+//	}
 
 }
