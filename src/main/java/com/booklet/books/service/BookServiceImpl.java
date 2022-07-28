@@ -34,6 +34,19 @@ public class BookServiceImpl implements IBookService {
 	}
 
 	@Override
+	public BookVO findById(int book_id) {
+		response = new BookVO(new ArrayList<Book>(), "Ocurred an error", "104");
+		try {
+			response.getBooks().add(dao.findById(book_id));
+			response.setMessage("Book found");
+			response.setCode("200");
+		} catch (Exception e) {
+			log.trace("Ocurred an error in findById from BookServiceImpl", e);
+		}
+		return response;
+	}
+
+	@Override
 	public BookVO findAllBooks() {
 		response = new BookVO(new ArrayList<Book>(), "Ocurred an error", "104");
 		try {

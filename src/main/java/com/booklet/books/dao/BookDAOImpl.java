@@ -27,6 +27,12 @@ public class BookDAOImpl implements IBookDAO {
 		return jdbcTemplate.update("INSERT INTO books (author, title, year, sellable, printing) VALUES (?, ?, ?, ?, ?)", book.getAuthor(), book.getTitle(), book.getYear(), book.isSellable(), book.getPrinting());
 	}
 
+	@SuppressWarnings("deprecation")
+	@Override
+	public Book findById(int book_id) {
+		return jdbcTemplate.queryForObject("SELECT * FROM books WHERE book_id = ?", new Object[] {book_id}, new BookMapper());
+	}
+
 	@Override
 	public List<Book> findAllBooks() {
 		return jdbcTemplate.query("SELECT * FROM books", new BookMapper());

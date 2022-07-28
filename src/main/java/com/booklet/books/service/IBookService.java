@@ -9,6 +9,7 @@ public interface IBookService {
 	public BookVO addBook(Book book);
 
 	//READ
+	public BookVO findById(int book_id);
 	public BookVO findAllBooks();
 	public BookVO findByAuthorName(String authorName);
 	public BookVO findByTitle(String title);

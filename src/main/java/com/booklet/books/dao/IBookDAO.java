@@ -10,6 +10,7 @@ public interface IBookDAO {
 	public int addBook(Book book);
 
 	//READ
+	public Book findById(int book_id);
 	public List<Book> findAllBooks();
 	public Book findByAuthorName(String authorName);
 	public Book findByTitle(String title);
