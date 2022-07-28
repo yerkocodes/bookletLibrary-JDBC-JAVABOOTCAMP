@@ -49,9 +49,9 @@
 
 						<td><c:out value="${book.getPrinting()}"></c:out></td>
 						<td class="d-flex justify-content-evenly">
-							<a class="btn btn-success" href="/changeSellable?book_id=${book.getBook_id()}&sellable=${!book.isSellable()}">Change availability</a> 
-							<a class="btn btn-primary" href="/update?book_id=${book.getBook_id()}">Update</a> 
-							<a class="btn btn-danger" href="/delete?book_id=${book.getBook_id()}">Delete</a></td>
+							<a class="btn btn-success" href="/bookManager/changeSellable?book_id=${book.getBook_id()}&sellable=${!book.isSellable()}">Change availability</a> 
+							<a class="btn btn-primary" href="/bookManager/update?book_id=${book.getBook_id()}">Update</a> 
+							<a class="btn btn-danger" href="/bookManager/delete?book_id=${book.getBook_id()}">Delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
