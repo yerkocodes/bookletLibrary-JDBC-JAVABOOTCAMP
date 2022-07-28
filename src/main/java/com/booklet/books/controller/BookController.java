@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.booklet.books.model.Book;
 import com.booklet.books.service.BookServiceImpl;
@@ -20,6 +22,8 @@ public class BookController {
 	
 	@Autowired
 	private IBookService bookService;
+	
+	private int idToUpdateBook = 0;
 
 	public BookController() {
 		super();
@@ -77,16 +81,30 @@ public class BookController {
 		return "listFoundBooks";
 	}
 
-	public String updateBook(ModelMap model, @ModelAttribute("updateBookForm") Book book) {
-		return null;
+	@RequestMapping(value="/update", method=RequestMethod.GET)
+	public String updateBookGET(ModelMap model, @RequestParam("book_id") int book_id) {
+		idToUpdateBook = book_id;
+		model.addAttribute("bookToUpdate", bookService.findById(book_id).getBooks().get(0));
+		return "updateBook";
 	}
 
+	@RequestMapping(value="/updateBook", method=RequestMethod.POST)
+	public String updateBookPOST(ModelMap model, @ModelAttribute("updateBookForm") Book book) {
+		book.setBook_id(idToUpdateBook);
+		bookService.updateBook(book);
+		return "redirect:/bookManager/home";
+	}
+
+	@RequestMapping(value="/changeSellable", method=RequestMethod.GET)
 	public String changeSellable(ModelMap model, @RequestParam("book_id") int book_id, @RequestParam("sellable") boolean sellable) {
-		return null;
+		bookService.changeSellable(book_id, sellable);
+		return "redirect:/bookManager/home";
 	}
 
+	@RequestMapping(value="/delete", method=RequestMethod.GET)
 	public String deleteBook(ModelMap model, @RequestParam("book_id") int book_id) {
-		return null;
+		bookService.deleteBook(book_id);
+		return "redirect:/bookManager/home";
 	}
 
 }
