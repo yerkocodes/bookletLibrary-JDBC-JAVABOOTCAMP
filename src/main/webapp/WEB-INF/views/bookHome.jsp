@@ -14,34 +14,9 @@
 </head>
 <body>
 
-	<%-- <jsp:include page="layouts/navbar.html"></jsp:include> --%>
+	<%@ include file="layouts/navbar.html" %>
 
-	<nav class="navbar navbar-expand-lg bg-light">
-		<div class="container">
-			<a class="navbar-brand" href="/bookManager/home">Booklet Library</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarNav"
-				aria-controls="navbarNav" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav ms-auto">
-					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="/bookManager/home">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/bookManager/newBook">Add Book</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/bookManager/search">Search Book</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
-	<div class="container mx-auto">
+	<div class="container mx-auto my-5">
 		<table class="table">
 			<thead>
 				<tr>
@@ -73,7 +48,7 @@
 						</c:choose>
 
 						<td><c:out value="${book.getPrinting()}"></c:out></td>
-						<td>
+						<td class="d-flex justify-content-evenly">
 							<a class="btn btn-success" href="/changeSellable?book_id=${book.getBook_id()}&sellable=${!book.isSellable()}">Change availability</a> 
 							<a class="btn btn-primary" href="/update?book_id=${book.getBook_id()}">Update</a> 
 							<a class="btn btn-danger" href="/delete?book_id=${book.getBook_id()}">Delete</a></td>
@@ -83,8 +58,7 @@
 		</table>
 	</div>
 
-
-
+	<%@ include file="layouts/searchModal.html" %>
 
 	<!-- BOOTSTRAP -->
 	<script

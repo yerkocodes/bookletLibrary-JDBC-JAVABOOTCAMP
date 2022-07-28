@@ -1,0 +1,36 @@
+<!-- MODAL -->
+	<div class="modal fade" id="exampleModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Search Book</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<form:form class="row g-3 needs-validation container mx-auto" action="/bookManager/findBook">
+					<div class="modal-body">
+
+						<div class="form-text text-center alert alert-info" role="alert">
+							You can search by author or book title. You can also use both to search.
+						</div>
+
+						<div class="my-3">
+							<label for="inputAuthorName" class="form-label">Author Name</label> 
+								<input type="text" name="authorName" class="form-control" id="inputAuthorName" aria-describedby="emailHelp">
+						</div>
+
+						<div class="">
+							<label for="inputBookTitle" class="form-label">Book title</label>
+							<input type="text" name="title" class="form-control" id="inputBookTitle">
+						</div>
+
+ 					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary w-100">Go to search</button>
+					</div>
+				</form:form>
+			</div>
+		</div>
+	</div>
+	<!-- MODAL END -->

@@ -14,33 +14,10 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg bg-light">
-		<div class="container">
-			<a class="navbar-brand" href="/bookManager/home">Booklet Library</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarNav"
-				aria-controls="navbarNav" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav ms-auto">
-					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="/bookManager/home">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/bookManager/newBook">Add Book</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/bookManager/search">Search Book</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<%@ include file="layouts/navbar.html" %>
 
 	<section>
-		<form:form class="row g-3 needs-validation container ms-auto" action="/bookManager/addBook" modelAttribute="bookForm">
+		<form:form class="row g-3 needs-validation container mx-auto my-5" action="/bookManager/addBook" modelAttribute="bookForm">
 
 			<div class="col-md-4">
 				<label for="validationCustom01" class="form-label">Author Name</label> 
@@ -92,6 +69,7 @@
 		</form:form>
 	</section>
 
+	<%@ include file="layouts/searchModal.html" %>
 
 	<!-- BOOTSTRAP -->
 	<script
