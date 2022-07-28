@@ -1,5 +1,7 @@
 package com.booklet.books.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -49,8 +51,30 @@ public class BookController {
 		return null;
 	}
 
+	@RequestMapping(value = "/findBook", method = RequestMethod.POST)
 	public String findByAuthorNameAndTitle(ModelMap model, @RequestParam("authorName") String authorName, @RequestParam("title") String title) {
-		return null;
+		
+		if (authorName != "" && title != "") {
+			model.addAttribute("bookList", bookService.findByAuthorNameAndTitle(authorName, title).getBooks());
+			model.addAttribute("statusMessage", bookService.findByAuthorNameAndTitle(authorName, title).getMessage());
+		}
+
+		if (authorName != "" && title == "") {
+			model.addAttribute("bookList", bookService.findByAuthorName(authorName).getBooks());
+			model.addAttribute("statusMessage", bookService.findByAuthorName(authorName).getMessage());
+		}
+
+		if (authorName == "" && title != "") {
+			model.addAttribute("bookList", bookService.findByTitle(title).getBooks());
+			model.addAttribute("statusMessage", bookService.findByTitle(title).getMessage());
+		}
+
+		if (authorName == "" && title == "") {
+			model.addAttribute("bookList", new ArrayList<>());
+			model.addAttribute("statusMessage", "You must fill at least one field in the search");
+		}
+		
+		return "listFoundBooks";
 	}
 
 	public String updateBook(ModelMap model, @ModelAttribute("updateBookForm") Book book) {
