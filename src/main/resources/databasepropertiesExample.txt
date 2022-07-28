@@ -1,0 +1,6 @@
+##### File name database.properties ####
+
+url=jdbc:mysql://localhost:3306/DATABASENAME
+dbUser=USER
+dbUserPassword=PASSWORD
+driver=com.mysql.cj.jdbc.Driver
